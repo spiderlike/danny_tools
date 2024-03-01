@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang=en itemscope itemtype=http://schema.org/WebPage>
+
+<head>
+    <meta charset=utf-8>
+    <script data-ezscrex=false data-cfasync=false
+        data-pagespeed-no-defer>var __ez = __ez || {}; __ez.stms = Date.now(); __ez.evt = {}; __ez.script = {}; __ez.ck = __ez.ck || {}; __ez.template = {}; __ez.template.isOrig = false; __ez.queue = function () { var e = 0, i = 0, t = [], n = !1, s = [], r = [], o = !0, a = function (e, i, n, s, r, o, a) { var l = this; this.name = e, this.funcName = i, this.parameters = null === n ? null : n instanceof Array ? n : [n], this.isBlock = s, this.blockedBy = r, this.deleteWhenComplete = o, this.isError = !1, this.isComplete = !1, this.isInitialized = !1, this.proceedIfError = a, this.isTimeDelay = !1, this.process = function () { u("... func = " + e), l.isInitialized = !0, l.isComplete = !0, u("... func.apply: " + e); var i = l.funcName.split("."), n = null; i.length > 3 || (n = 3 === i.length ? window[i[0]][i[1]][i[2]] : 2 === i.length ? window[i[0]][i[1]] : window[l.funcName]), null != n && n.apply(null, this.parameters), !0 === l.deleteWhenComplete && delete t[e], !0 === l.isBlock && (u("----- F'D: " + l.name), f()) } }, l = function (e, i, t, n, s, r, o) { var a = this; this.name = e, this.path = i, this.async = s, this.defer = r, this.isBlock = t, this.blockedBy = n, this.isInitialized = !1, this.isError = !1, this.isComplete = !1, this.proceedIfError = o, this.isTimeDelay = !1, this.isPath = function (e) { return "/" === e[0] && "/" !== e[1] }, this.getSrc = function (e) { return void 0 !== window.__ezScriptHost && this.isPath(e) ? window.__ezScriptHost + e : e }, this.process = function () { a.isInitialized = !0, u("... file = " + e); var i = document.createElement("script"); i.src = this.getSrc(this.path), !0 === s ? i.async = !0 : !0 === r && (i.defer = !0), i.onerror = function () { u("----- ERR'D: " + a.name), a.isError = !0, !0 === a.isBlock && f() }, i.onreadystatechange = i.onload = function () { var e = i.readyState; u("----- F'D: " + a.name), e && !/loaded|complete/.test(e) || (a.isComplete = !0, !0 === a.isBlock && f()) }, document.getElementsByTagName("head")[0].appendChild(i) } }, c = function (e, i) { this.name = e, this.path = "", this.async = !1, this.defer = !1, this.isBlock = !1, this.blockedBy = [], this.isInitialized = !0, this.isError = !1, this.isComplete = i, this.proceedIfError = !1, this.isTimeDelay = !1, this.process = function () { } }; function d(e) { !0 !== h(e) && 0 != o && e.process() } function h(e) { if (!0 === e.isTimeDelay && !1 === n) return u(e.name + " blocked = TIME DELAY!"), !0; if (e.blockedBy instanceof Array) for (var i = 0; i < e.blockedBy.length; i++) { var s = e.blockedBy[i]; if (!1 === t.hasOwnProperty(s)) return u(e.name + " blocked = " + s), !0; if (!0 === e.proceedIfError && !0 === t[s].isError) return !1; if (!1 === t[s].isComplete) return u(e.name + " blocked = " + s), !0 } return !1 } function u(e) { var i = window.location.href, t = new RegExp("[?&]ezq=([^&#]*)", "i").exec(i); "1" === (t ? t[1] : null) && console.debug(e) } function f() { ++e > 200 || (u("let's go"), m(s), m(r)) } function m(e) { for (var i in e) if (!1 !== e.hasOwnProperty(i)) { var t = e[i]; !0 === t.isComplete || h(t) || !0 === t.isInitialized || !0 === t.isError ? !0 === t.isError ? u(t.name + ": error") : !0 === t.isComplete ? u(t.name + ": complete already") : !0 === t.isInitialized && u(t.name + ": initialized already") : t.process() } } return window.addEventListener("load", (function () { setTimeout((function () { n = !0, u("TDELAY -----"), f() }), 5e3) }), !1), { addFile: function (e, i, n, o, a, c, h, u) { var f = new l(e, i, n, o, a, c, h); !0 === u ? s[e] = f : r[e] = f, t[e] = f, d(f) }, addDelayFile: function (e, i) { var n = new l(e, i, !1, [], !1, !1, !0); n.isTimeDelay = !0, u(e + " ...  FILE! TDELAY"), r[e] = n, t[e] = n, d(n) }, addFunc: function (e, n, o, l, c, h, u, f, m) { !0 === h && (e = e + "_" + i++); var p = new a(e, n, o, l, c, u, f); !0 === m ? s[e] = p : r[e] = p, t[e] = p, d(p) }, addDelayFunc: function (e, i, n) { var s = new a(e, i, n, !1, [], !0, !0); s.isTimeDelay = !0, u(e + " ...  FUNCTION! TDELAY"), r[e] = s, t[e] = s, d(s) }, items: t, processAll: f, setallowLoad: function (e) { o = e }, markLoaded: function (e) { if (e && 0 !== e.length) { if (e in t) { var i = t[e]; !0 === i.isComplete ? u(i.name + " " + e + ": error loaded duplicate") : (i.isComplete = !0, i.isInitialized = !0) } else t[e] = new c(e, !0); u("markLoaded dummyfile: " + t[e].name) } }, logWhatsBlocked: function () { for (var e in t) !1 !== t.hasOwnProperty(e) && h(t[e]) } } }(); __ez.evt.add = function (e, t, n) { e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent ? e.attachEvent("on" + t, n) : e["on" + t] = n() }, __ez.evt.remove = function (e, t, n) { e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent ? e.detachEvent("on" + t, n) : delete e["on" + t] }; __ez.script.add = function (e) { var t = document.createElement("script"); t.src = e, t.async = !0, t.type = "text/javascript", document.getElementsByTagName("head")[0].appendChild(t) }; __ez.dot = {};</script>
+    <link rel=preconnect href=//www.googletagmanager.com crossorigin>
+    <link rel=preconnect href=//go.ezoic.net crossorigin>
+    <script type=text/ez-screx>(function(){function storageAvailable(type){var storage;try{storage=window[type];var x='__storage_test__';storage.setItem(x,x);storage.removeItem(x);return true;}
+catch(e){return e instanceof DOMException&&(e.code===22||e.code===1014||e.name==='QuotaExceededError'||e.name==='NS_ERROR_DOM_QUOTA_REACHED')&&(storage&&storage.length!==0);}}
+function remove_ama_config(){if(storageAvailable('localStorage')){localStorage.removeItem("google_ama_config");}}
+remove_ama_config()})()</script>
+    <script data-ezscrex=false
+        data-cfasync=false>__ez.ssaf = [17, 16]; __ez.sswp = 4; __ez.ssv = 411963; __ez.sshsdef = true;</script>
+    <script>var ezoicTestActive = true</script>
+    <script data-ezscrex=false
+        data-cfasync=false>var _ezaq = { "ad_cache_level": 2, "ad_count_adjustment": 0, "ad_lazyload_version": -1, "ad_load_version": 1, "ad_location_ids": "", "ad_transform_level": 0, "adx_ad_count": 0, "bidder_method": 1, "bidder_version": 3, "city": "", "country": "IR", "days_since_last_visit": -1, "display_ad_count": 0, "domain_id": 177313, "ds_adsize_opt_id": -1, "engaged_time_visit": 0, "ezcache_level": 2, "ezcache_skip_code": 0, "form_factor_id": 1, "framework_id": 1, "has_bad_image": 0, "has_bad_words": 0, "iab_category": "", "iab_category_0": "286", "iab_category_1": "225", "iab_category_2": "239", "iab_category_3": "680", "is_from_recommended_pages": false, "is_return_visitor": false, "is_sitespeed": 1, "last_page_load": "1663321683079", "last_pageview_id": "70c4593f-a5d5-4215-65df-e7072a2d4ab6", "lt_cache_level": 0, "max_ads": 0, "metro_code": 0, "optimization_version": 1, "page_ad_positions": "", "page_view_count": 4, "page_view_id": "ea194bcb-5a81-4482-5668-245759605f94", "position_selection_id": 0, "postal_code": "", "pv_event_count": 0, "response_size_orig": 24015, "response_time_orig": 4, "serverid": "35.159.12.223:26768", "state": "", "sub_page_ad_positions": "", "t_epoch": 1663321797, "template_id": 134, "time_on_site_visit": 117, "url": "https://onlinetyping.org/typing-lessons/free-typing-course.php", "user_id": 0, "weather_precipitation": 0, "weather_summary": "", "weather_temperature": 0, "word_count": 209, "worst_bad_word_level": 0 }; var _ezim_d = {}; var _ezat = { "domain_id": 177313, "form_factor_id": 1, "framework_id": 1, "pageview_date": "2022-09-16", "pageview_id": "ea194bcb-5a81-4482-5668-245759605f94", "template_id": 134, "url": "https://onlinetyping.org/typing-lessons/free-typing-course.php", "visit_uuid": "8c83ac73-88ef-4d7f-6abb-5d2f7a810a17" };</script>
+    <script data-ezscrex=false data-pagespeed-no-defer
+        data-cfasync=false>__ez.queue.addFile('banger.js', '/porpoiseant/banger.js?cb=195-2&bv=157&v=64&PageSpeed=off', true, [], true, false, false, true);</script>
+    <script data-ezscrex=false data-cfasync=false
+        data-pagespeed-no-defer>!function () { var e; __ez.vep = (e = [], { Add: function (i, t) { __ez.dot.isDefined(i) && __ez.dot.isValid(t) && e.push({ type: "video", video_impression_id: i, domain_id: __ez.dot.getDID(), t_epoch: __ez.dot.getEpoch(0), data: __ez.dot.dataToStr(t) }) }, Fire: function () { if (void 0 === document.visibilityState || "prerender" !== document.visibilityState) { if (__ez.dot.isDefined(e) && e.length > 0) for (; e.length > 0;) { var i = 5; i > e.length && (i = e.length); var t = e.splice(0, i), o = __ez.dot.getURL("/detroitchicago/grapefruit.gif") + "?orig=" + (!0 === __ez.template.isOrig ? 1 : 0) + "&v=" + btoa(JSON.stringify(t)); __ez.dot.Fire(o) } e = [] } } }) }();</script>
+    <script data-ezscrex=false data-cfasync=false data-pagespeed-no-defer></script>
+    <meta name=Description
+        content="9th day of 30 days free typing course. It is a 2 minutes program where you will learn to type numbers and symbols present on the top row.">
+    <meta name=Keywords content="free typing course,typing course for free,typing course free,free course typing">
+    <title>Free typing course - 9th day's course to type numbers and symbols</title>
+    <link rel=canonical href=https://onlinetyping.org/typing-lessons/free-typing-course.php>
+    <meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name=theme-color content="#dc1f26">
+    <link rel=manifest href=https://onlinetyping.org/manifest.json>
+    <link rel="shortcut icon" href=https://onlinetyping.org/favicon.ico type=image/x-icon>
+    <link rel=apple-touch-icon href=https://onlinetyping.org/images/icon-2x.png>
+    <link rel=mask-icon href=https://onlinetyping.org/images/mask.png color=#ee6c70>
+    <meta property="og:title" content="Free typing course - 9th day's course to type numbers and symbols">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onlinetyping.org/typing-lessons/free-typing-course.php">
+    <meta property="og:image" content="https://onlinetyping.org/typing-lessons/images/touch-typing-keyboard.png">
+    <meta property="fb:admins" content="100003160596306">
+    <meta property="og:site_name" content="Online typing">
+    <meta property="og:description"
+        content="9th day of 30 days free typing course. It is a 2 minutes program where you will learn to type numbers and symbols present on the top row.">
+    <meta itemprop=name content="Free typing course - 9th day's course to type numbers and symbols">
+    <meta itemprop=description
+        content="9th day of 30 days free typing course. It is a 2 minutes program where you will learn to type numbers and symbols present on the top row.">
+    <meta itemprop=image content="https://onlinetyping.org/typing-lessons/images/touch-typing-keyboard.png">
+    <meta name=twitter:card content="summary_large_image">
+    <meta name=twitter:site content="@AnythingType">
+    <meta name=twitter:creator content="@ankurnaskar">
+    <meta name=twitter:title content="Free typing course - 9th day's course to type numbers and symbols">
+    <meta name=twitter:description
+        content="9th day of 30 days free typing course. It is a 2 minutes program where you will learn to type numbers and symbols present on the top row.">
+    <meta name=twitter:image content="https://onlinetyping.org/typing-lessons/images/touch-typing-keyboard.png">
+    <script
+        type=application/ld+json>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/onlinetyping.org\/typing-lessons\/free-typing-course.php","name":"Free typing course - 9th day's course to type numbers and symbols"}</script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fcc;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(#b62327, #d05255)
+        }
+
+        header {
+            width: 1350px;
+            max-width: 94%;
+            border-bottom: 5px solid #ee2d24;
+            margin: 0 auto;
+            overflow: hidden
+        }
+
+        #logo {
+            width: 40%;
+            float: left;
+            overflow: hidden
+        }
+
+        #logo h2 a,
+        #logo h2 {
+            color: #fff;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #fff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+
+        a {
+            text-decoration: none;
+            color: #333
+        }
+
+        nav {
+            width: 50%;
+            float: right
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        nav ul li {
+            float: right
+        }
+
+        nav ul li a {
+            border-left: 2px ridge rgba(209, 98, 98, .298039);
+            display: block;
+            padding: 30px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        nav ul li a:hover,
+        nav ul li .active {
+            background-color: #900303
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #4e4e4e;
+            font-weight: 100
+        }
+
+        .all {
+            width: 1350px;
+            max-width: 94%;
+            padding: 0;
+            margin: 0 auto;
+            overflow: hidden;
+            background: #fff
+        }
+
+        aside {
+            width: 25%;
+            float: left;
+            background-color: #fff
+        }
+
+        article {
+            width: 71%;
+            padding: 0 2%;
+            float: right;
+            overflow: hidden;
+            background: #fff
+        }
+
+        aside section {
+            width: 90%;
+            padding: 10px 5%;
+            margin-bottom: 10px
+        }
+
+        aside h3 {
+            color: #333;
+            font-size: 18px;
+            margin: 10px 0 0;
+            font-weight: 100
+        }
+
+        aside ul {
+            list-style: none;
+            margin: 10px 0 20px;
+            padding: 0
+        }
+
+        aside ul li {
+            padding: 0;
+            font-size: 14px;
+            font-family: oswald, sans-serif
+        }
+
+        aside ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 7px 5px;
+            border-bottom: 1px solid #ece6bc
+        }
+
+        aside ul li a:hover,
+        aside ul li .active {
+            color: #fff;
+            background: #f38585;
+            border-bottom: 1px solid #f38585
+        }
+
+        article p {
+            margin: 10px 0;
+            text-align: justify;
+            font-size: 14px;
+            line-height: 22px;
+            color: #666
+        }
+
+        footer {
+            width: 1350px;
+            max-width: 90%;
+            padding: 27px 2%;
+            overflow: hidden;
+            color: #fff;
+            margin: 0 auto
+        }
+
+        .footer-class {
+            font-size: 12px
+        }
+
+        .pangram {
+            background: #fb292b;
+            margin-top: 10px;
+            color: #fff;
+            border: none
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            margin: 10px
+        }
+
+        footer a:hover {
+            color: #000
+        }
+
+        h1 {
+            color: #4e4e4e;
+            font-size: 36px;
+            margin: 20px 0;
+            font-weight: 100
+        }
+
+        h2 {
+            color: #333;
+            font-size: 27px;
+            margin: 40px 0 10px;
+            font-weight: 100
+        }
+
+        .clear {
+            clear: both
+        }
+
+        figure {
+            background: #fff;
+            text-align: center;
+            margin: 0
+        }
+
+        figure img {
+            width: 100%
+        }
+
+        .button {
+            padding: 10px 30px;
+            border: 1px solid #f30;
+            margin: 10px 1.5%;
+            text-align: center;
+            float: left
+        }
+
+        .button:hover {
+            border: 1px solid #de4b4f;
+            color: #fff;
+            background-color: #b62327
+        }
+
+        #timer,
+        #restart {
+            margin: .2em;
+            line-height: 2.2em;
+            height: 2.2em
+        }
+
+        #word-section {
+            border: 1px solid #999;
+            background-color: #fff
+        }
+
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        article section {
+            width: 90%;
+            margin: 0 auto;
+            padding: .5em
+        }
+
+        #word-section {
+            font-size: 1.3em;
+            height: 4em;
+            line-height: 2em;
+            border-radius: .25em;
+            position: relative;
+            padding: .5em;
+            overflow: hidden;
+            margin-bottom: 12px
+        }
+
+        #word-section>span {
+            display: inline-block;
+            margin-left: .2em
+        }
+
+        #type-section {
+            text-align: center
+        }
+
+        #type-section>* {
+            font-size: 1.5em;
+            display: inline-block;
+            border-radius: .25em;
+            border: none;
+            color: #fff;
+            vertical-align: middle
+        }
+
+        #typebox {
+            width: 64%;
+            color: #000;
+            padding: .5em;
+            box-shadow: -1px -1px 5px #383838
+        }
+
+        #typebox:focus {
+            outline: none
+        }
+
+        #timer {
+            width: 4em;
+            background-color: #467f21;
+            margin-right: 0
+        }
+
+        #restart {
+            padding: 0 10px;
+            background-color: #ce2127;
+            cursor: pointer
+        }
+
+        #restart>span {
+            display: inline-block
+        }
+
+        #restart:hover {
+            background-color: #ee2f25
+        }
+
+        #restart:active {
+            box-shadow: 1px 1px 4px #467F21 inset
+        }
+
+        #results {
+            text-align: center;
+            margin: 0 1%;
+            display: block
+        }
+
+        #results li {
+            list-style: none
+        }
+
+        #results li:first-child {
+            font-size: 1.5em
+        }
+
+        #results li:nth-child(2) {
+            font-size: .8em;
+            line-height: 1em
+        }
+
+        #results #results-stats {
+            font-size: .6em
+        }
+
+        .magic-box {
+            position: fixed;
+            width: inherit;
+            height: .5em;
+            top: 54px;
+            background-color: #fff
+        }
+
+        .waiting {
+            text-align: center;
+            line-height: 1.5em;
+            font-size: 3em
+        }
+
+        .waitingg {
+            text-align: center;
+            line-height: 1.5em
+        }
+
+        .current-word {
+            background-color: rgb(75, 75, 75);
+            color: white;
+        }
+
+        .correct-word-c {
+            color: #93c572
+        }
+
+        .incorrect-word-c {
+            color: #e50000
+        }
+
+        .incorrect-word-bg {
+            background-color: #e50000
+        }
+
+        #done {
+            background-color: #ce2127;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            color: #fff;
+            border-radius: 10px
+        }
+
+        #doresu {
+            background-color: #ce2127;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            color: #fff;
+            border-radius: 10px;
+            display: block
+        }
+
+        #social {
+            margin-top: 20px;
+            width: auto;
+            position: relative
+        }
+
+        #social ul {
+            margin: 10px 0;
+            padding: 0;
+            text-align: center
+        }
+
+        #social ul li {
+            display: inline-block
+        }
+
+        #social ul li a {
+            width: auto;
+            height: 36px;
+            background: url(images/social-media.png?ezimgfmt=ng%3Awebp%2Fngcb20)no-repeat;
+            display: inline-block;
+            cursor: pointer;
+            padding-left: 40px;
+            font-size: 12px;
+            margin-left: 10px
+        }
+
+        #social ul li a.facebook {
+            background-position: 0 -36px;
+            color: #415ca9
+        }
+
+        #social ul li a.twitter {
+            background-position: 0 -72px;
+            color: #2babe2
+        }
+
+        #social ul li a.pin {
+            background-position: 0 0;
+            color: #cb2027
+        }
+
+        .vr {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px
+        }
+
+        #link {
+            width: 600px;
+            margin: 10px auto 25px;
+            padding: 10px
+        }
+
+        #link input {
+            border: none;
+            width: 75%;
+            outline: none
+        }
+
+        #link button {
+            width: 100%;
+            background: #dc4d41;
+            color: #fff;
+            border: none;
+            padding: 9px 1%;
+            cursor: pointer
+        }
+
+        #link h3 {
+            font-weight: 100;
+            text-align: center;
+            margin: 0 0 20px
+        }
+
+        .next {
+            margin-top: 10px;
+            background: #467f21;
+            color: #fff;
+            padding: 9px 1%;
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            font-size: 14px
+        }
+
+        .heading {
+            text-align: center;
+            border-top: 1px solid #ccc;
+            padding: 20px
+        }
+
+        .right {
+            width: 45%;
+            float: right;
+            text-align: right
+        }
+
+        .left {
+            width: 45%;
+            float: left
+        }
+
+        .certificate {
+            border: none;
+            background: #467f21;
+            color: #fff
+        }
+
+        .certificate:hover {
+            background: #8bc34a;
+            border: none
+        }
+
+        @media(max-width:1280px) {
+            nav {
+                width: 60%;
+                float: right
+            }
+
+            nav ul li a {
+                padding: 30px 20px
+            }
+        }
+
+        @media(max-width:980px) {
+            aside {
+                width: 100%
+            }
+
+            article {
+                width: 96%
+            }
+        }
+
+        @media(max-width:768px) {
+            header {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                z-index: 11
+            }
+
+            #logo {
+                width: 100%;
+                float: none;
+                text-align: center;
+                overflow: visible
+            }
+
+            nav {
+                width: 100%;
+                float: right;
+                background: #8b0202;
+                height: auto
+            }
+
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0
+            }
+
+            nav ul li {
+                float: none;
+                width: 100%
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 0;
+                text-align: center;
+                color: #fff;
+                text-decoration: none;
+                z-index: 111;
+                border-top: 2px ridge rgba(185, 7, 7, .41)
+            }
+
+            nav ul li ul {
+                display: none
+            }
+
+            nav ul li:hover ul {
+                display: block
+            }
+
+            nav ul li ul li {
+                display: block;
+                width: 100%
+            }
+
+            nav ul li ul li a {
+                border-left: none;
+                padding: 15px 0;
+                text-align: center;
+                color: #fff;
+                text-decoration: none;
+                background: #14d2e2;
+                z-index: 1111;
+                border-top: 2px ridge rgba(98, 201, 209, .298039)
+            }
+
+            .button {
+                padding: 10px 0;
+                width: 44%;
+                margin: 2%;
+                text-align: center
+            }
+
+            #link {
+                width: 98%;
+                margin: 10px auto;
+                padding: 10px 1%
+            }
+        }
+
+        @media(max-width:500px) {
+            .button {
+                width: 90%;
+                margin: 10px 5%;
+                text-align: center
+            }
+        }
+
+        /*
+        custom
+        */
+
+        #word-section {
+            background-color: black;
+            color: rgba(256, 256, 256, .8);
+        }
+
+        body {
+            background: green
+        }
+
+        article {
+            background: black
+        }
+    </style>
+    <style id=ezoicCSS>
+        .ezoic-ad {
+            display: inline-block;
+            border: 0
+        }
+
+        .ezoic-ad>div>iframe {
+            margin: 0 !important;
+            padding: 0 !important
+        }
+
+        .ezoic-floating-bottom {
+            display: none !important
+        }
+    </style>
+    <link rel=preload as=image href="images/social-media.png?ezimgfmt=ng%3Awebp%2Fngcb20">
+    <script>var ezouid = "1";</script>
+    <base href=https://onlinetyping.org/typing-lessons/free-typing-course.php>
+    <script>var ezoTemplate = 'pub_site'; if (typeof ezouid == 'undefined') { var ezouid = 'none'; }
+        var ezoFormfactor = '1'; var ezo_elements_to_check = Array();</script>
+    <script
+        data-ezscrex=false>var soc_app_id = '0'; var did = 177313; var ezdomain = 'onlinetyping.org'; var ezoicSearchable = 1;</script>
+    <script data-ezscrex=false data-pagespeed-no-defer
+        data-cfasync=false>function create_ezolpl(pvID, rv) { var d = new Date(); d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000)); var expires = "expires=" + d.toUTCString(); __ez.ck.setByCat("ezux_lpl_177313=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3); }
+            function attach_ezolpl(pvID, rv) {
+                if (document.readyState === "complete") { create_ezolpl(pvID, rv); }
+                if (window.attachEvent) { window.attachEvent("onload", create_ezolpl, pvID, rv); } else { if (window.onload) { var curronload = window.onload; var newonload = function (evt) { curronload(evt); create_ezolpl(pvID, rv); }; window.onload = newonload; } else { window.onload = create_ezolpl.bind(null, pvID, rv); } }
+            }
+            __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["ea194bcb-5a81-4482-5668-245759605f94", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);</script>
+    <script>var _audins_dom = "onlinetyping_org", _audins_did = 177313; __ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-2&cb=04-3y02-8y06-13y07-2y19-7y0b-6y0d-21y13-4y17-5y1c-4y21-3y2f-4y57-2&cmbcb=109&sj=x04x02x06x07x19x0bx0dx13x17x1cx21x2fx57&abt=VignetteBangerType', true, [], true, false, true, false);</script>
+    <script
+        defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-2&cb=03-8y0c-6y18-5&cmbcb=109&sj=x03x0cx18&abt=VignetteBangerType', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script>
+</head>
+
+<body onload=addWords()>
+    <header>
+        <div id=logo>
+            <h2><a href=https://onlinetyping.org/ title="Online Typing">Online Typing.org</a></h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href=https://onlinetyping.org/blog/ title="Typing Blog">Blog</a>
+                <li><a href=https://onlinetyping.org/10-key-typing-test/ title="10 Key Typing Test">10 Key Test</a>
+                <li><a href=https://onlinetyping.org/typing-games/ title="Typing Games">Typing Games</a>
+                <li><a href=https://onlinetyping.org/typing-test/ title="Typing Test">Typing Test</a>
+            </ul>
+        </nav>
+    </header>
+    <div class=all>
+        <article>
+            <h1>Free typing course</h1>
+            <h3>Day 9</h3>
+            <p>It is the 9th exercise of the 30 days free typing course. In this exercise, you will learn to type
+                numbers and symbols. The minimum typing speed to crack this exercise is 15 WPM. It's a 2 minutes free
+                typing exercise, practice this at least 10 to 15 times to get a better result.<span
+                    id=ezoic-pub-ad-placeholder-107 class=ezoic-adpicker-ad></span>
+            <div id=word-section>
+                <div class=waiting>Loading...</div>
+            </div>
+            <div id=type-section><input id=typebox name=typebox tabindex=1 autofocus onkeyup=typingTest(event)>
+                <div id=timer class=type-btn><span>2:00</span></div>
+            </div>
+            <div class=vr id=result></div>
+            <div id=social></div>
+            <div id=link></div>
+            <h2 class=heading>Finger position on top row</h2>
+            <figure><img src=images/finger-position-on-keyboard-top-row.png alt="Finger position on numbers row"
+                    title="Finger position on the top row" ezimgfmt="rs rscb20 src ng ngcb20"></figure>
+            <div class=clear></div><span id=ezoic-pub-ad-placeholder-109 class=ezoic-adpicker-ad></span>
+        </article><span id=ezoic-pub-ad-placeholder-110 class=ezoic-adpicker-ad></span>
+        <aside>
+            <section>
+                <h3>Understand the keyboard (Part - 1)</h3>
+                <ul>
+                    <li><a href=https://onlinetyping.org/typing-lessons />Free typing lessons (Day - 1)</a>
+                    <li><a href=free-online-typing-lessons.php>Day - 2 (exercise)</a>
+                    <li><a href=free-online-typing-classes.php>Day - 3 (exercise)</a>
+                    <li><a href=free-online-typing-course.php>Day - 4 (exercise)</a>
+                    <li><a href=typing-training-free.php>Day - 5 (exercise)</a>
+                </ul>
+                <h3>Set fingers on the keyboard (Part - 2)</h3>
+                <ul>
+                    <li><a href=free-typing-lessons-for-kids.php>Day - 6 (exercise)</a>
+                    <li><a href=learn-typing-online-free.php>Day - 7 (exercise)</a>
+                    <li><a href=free-keyboarding-lessons.php>Day - 8 (exercise)</a>
+                    <li><a href=free-typing-course.php class=active>Day - 9 (exercise)</a>
+                </ul>
+                <h3>Words Typing (Part - 3)</h3>
+                <ul>
+                    <li><a href=touch-typing-lessons.php>Day - 10 (exercise)</a>
+                    <li><a href=typing-lessons-for-adults.php>Day - 11 (exercise)</a>
+                    <li><a href=free-typing-classes.php>Day - 12 (exercise)</a>
+                </ul>
+                <h3>Final Lessons (Part - 4)</h3>
+                <ul>
+                    <li><a href=touch-typing-online-lesson.php>Day - 13 to 15 (exercise)</a>
+                    <li><a href=best-online-typing-course.php>Day - 16 to 18 (exercise)</a>
+                    <li><a href=typing-training-online.php>Day - 19 to 21 (exercise)</a>
+                    <li><a href=advanced-english-typing.php>Day - 22 to 24 (exercise)</a>
+                    <li><a href=typing-course-certificate.php>Day - 25 to 27 (exercise)</a>
+                </ul>
+                <ul>
+                    <li><a href=advanced-typing-practice.php class=certificate>Advanced Typing Practice</a>
+                    <li><a href=typing-pangrams.php class=pangram>Typing Pangrams</a>
+                </ul>
+            </section><span id=ezoic-pub-ad-placeholder-111 class=ezoic-adpicker-ad></span>
+        </aside>
+        <div class=clear></div>
+    </div>
+    <footer>
+        <div class=left>
+            <p><a href=https://onlinetyping.org/ title=Home>Home</a>
+                <a href=https://onlinetyping.org/contact.php title="Contact Us">Contact</a>
+                <a href=https://onlinetyping.org/tos.php title="Privacy Policy">Privacy Policy</a>
+        </div>
+        <div class=right>
+            <p class=footer-class>© 2016 - <span id=year>2021</span> OnlineTyping.org. All Rights Reserved.
+        </div>
+    </footer>
+    <script>"use strict"; if (window.$ = document.querySelectorAll.bind(document), navigator.userAgent.match(/firefox/i)) { var ffwait = "line-height: 1em; font-size: 4em;"; $(".waiting")[0].setAttribute("style", ffwait) }
+        var wordList = ["1234~", "0987!", "5683@", "5213#", "12{350$", "45}823$", "412]66%", "8623^", "852\&", "963*", "9?63(", "1?238(", "87?52)", "1243)", "-124?", "=1475<", "2+7=91", "34?-25", "12_46|", "7+?561", "94_61?", "75(31", "25)33", "44*67", "7\&756", "8^854?", "6%654?", "6$632", "55#42", "44@21", "44!83", "33~29", "1!176?", "2!4?69", "!98?31[351]", "{!70|44}", "!7044;213?84", "!70442;461?00", "!7044?254608", "!7059{51>69}68", "{7059}566<263", "!7059<612>595", "!7059{6429}05", "!705[9717]072", "!72[78587]728", "!7278{6042}15", "7!38474[3945]", "7!407071{272}", "7!40[7442]081", "8!100(758)319", "8@10075|9943", "827@6950|228", "8@28032[052]8", "828@2820{961}", "8@282`8{813}44", "8@42012[119:21]", "84201@311{19}", "8@100812/244", "@987\\4077<522", "9@2391[64439]", "@9830{44}6612", "98@3044[6619]", "@983:00{8618}6", "9@83015[4280]", "@983|08×611#91", "908.88#76788", "94#3317|9549", "900#79>22\\831", "#98?305/67405", "#700[/3937]928", "80#171{!682}14", "#98;313[2399]2", "990#3088\\555", "#86<9728|7>089", "86|972#875<39", "9831\\011#438", "{9143}206:66#8", "[90511]2850#0", "8{33}487#7942", "988#361[99]99", "990#3834{720}", "98#30-792_86", "98+0=79508", "801$71-12?18", "$9-=3022,56×59", "9=-397?71.994", "×8961-684<51", ";983$1220,042", "908=841.882", "96$472.866:34", "=836,22?6.954", "-674$382|910", "=8312$66/077", "?9230.727>36$8", "9=366{614}-2", "-748$220.887", "=83:667$3968×", "=05?10$34{888}", "983$695[3733]", "?9051=920$25", "{983}104.69$-2", "85[82.]8$29{60×2}", "$967[40?59]6$0=", "=89$064.756.98", "-9$831,065:5.97", "$9831×.5415?40", "$987,424'7900", "98%31'001'379?", "9%874×20\\8000", "1%234?", "098?7", "%56×83", "52?13%", "12%350", ":458%23", "%412{66}", "/862%3", "×852%", "96%3", "96%3", "?1238%", "87%52", "%12?43", "%124", "=1%475", "279%1", "3%425", "%1246", "7%56197×", "9%461", "75%31", "?253%3", "×4467%", ";77?56%", "8\"854%", "6%654", "?66%32", "5%542", "44%21", "×44%83", "3%329?", "11[76%", "2%469<", "98%312[34]56%7", "70,44%209,360", "7%0442.138?44", "7%04:42{461}00", "%7044.254,608", "70;59%5169,68", "70'595%66'263", "70\"596\"12%595?", "70\"596\"×429%05", "?7059{71×70}72", "7%27?85...8772;8", "72,786%0421|5:", "73/84%743\"945\"", "74%070×7,1272", "740%74?42\"081\"", "81,0075%83<19>", "810..0759%943?", "827[6:95]02%28", "828*032%0528×", "82.828%209,61", "82|82%881\\344", "84×201%211\\21", "84/201%31\\119", "810~081%2244?", "987~4077%522?", "9239{1%64}439×", "98[3044%]6612?", "98?30\\446//61%9", "9×83:00|86186%", "983{01×542}80%", "983.086~11^91?", "9^08?88{767}88", "^9433[1795]49", "^90?079{228×31}", "9^83?05/674\\05", "7^00×39.379,28", "80^171\"682\"14", "98^3132~3992?", "9^90;3,088{555}", "86^97;28[70?89]", "869^7287\\539", "98.310^114{38}", "914^320[666]8", "90511^285~00", "?8334^877_942", "98^83×61{999}5", "990^383.4720", "9^830-792[86]", "98\\30=795.08", "80^171-12×18", "9-=3022,56.59", "9=-3977,199,4", "?8961-68|451", "983^122\"00\"42", "908=84:1\\882", "9647^286/634", "=836\\226\\95^4", "-674/382.910", "=8312^660{77}", "9230^72[73]68", "9=366,614-2", "-748:22~088.7", "=836,673^968", "=05103^4888?", "98[36×95]3^733", "9051=92^025", "×9831.04;69-2", "85,828^296\\02", "967\\405\\960=", "=89/0647\\569/8", "-983.1065[597]", "983^154{154}0", "987[424]79^00", "983{10.01}379^", "987,420^80.00", "1234^", "0987?", "56\&83", "5213\&", "1!235\\&0", "45.82\\&3", "412\\&6\\6:", "86\\&23;", "85\&2", "9;63\&", "963", "123\&8", "87\&52", "12\&43", "-12\&4", "=14.7\&5", "2,79\&1", "3/42\&5", "124\&6", "7\\56\&1", "94\&61", "7\&531", "25\&33", "4\&467", "77/5\&6", "88\&54", "6\\65\&4", "663\&2", "55\&42", "44*21", "4*483", "33*29", "1*176", "24*69", "9*8312,345\\67", "704*420//9360", "70*442\\13844×", "70*442;4.6100", "?70442*54[60]8", "705,951:6*968", "705~956.6263*", "705,96\\12*595", "705,964*2905?", "705.97.170*72,", "727\\858//77*28", "727/860/4*215", "73/847/4*3945", "740\\707.12*72", "7407.442,08*1", "8100,7583*19", "81@00{759*}943", "827/695/022\\8*", "828/0320\\528*", "828{,282}0961*", "82[8288]134\\4*", "84;20/12/1*121", "84,201.31*119", "81{00\\81}2*244", "987[407*75]22", "92*391]644×39*", "983*0446}612", "9*83×04}466*19", "9:830*086.186}", "9*8301]542\\80", "(9830/861/191", "9(08}8876|788", "(943}317,9549", "900,79(228;31", "983\"05(67\"405", "700(393\'79\'28", "801(7168\'214", "(9831×3239?92", "(990;3088:555", "8(697287089", "86:972(875;39", "9831011(438", "914)3206?668", "9)051;128~500", "8)334<877[94:2", "988}361:99)99", "9903)834720", "983)0-792×86", "9)830=795?08", "8)0171-1218", "9)-=302}256;59", "9=-397)719?94", "8961-684)51", "983?122)0042", "9_08=841×882", "96_472[866:34", "=83;6226;954", "-67~438:291?0", "=83|126\\607:7", "923_0727×368", "9=366|614-2", "-7482_208×87", "=836:673~968", "=05_1034;888", "9_8369`53/733", "9051=92_025", "?9831:0469-2", "858;28_29602?", "96_740?5960=", "=890×647_5698?", "-9831:065]597", "983_154{15>40", "98:74;247_900", "98?310_01379×", "9874?208_000", "1234", "0987", "56_83", "521_3", "123_50", "4582_3", "4126_6", "86_23", "8_52", "96_3", "9_63", "123_8", "875_2", "124_3", "-124", "=1475", "27+91", "3+425", "12+46", "75+61", "946+1", "753+1", "25+33", "44+67", "77_56", "885_4", "6654_", "66_32", "554_2", "44_21", "44_83", "332_9", "11_76", "246_9", "983_1234?567", "7_04420\\93:60", "7_044:213?844", "7_044{246<100", "704_4254×608", "705=951[6968", "70+5956?6263", "70+596=>125×95", "70+59642?905", "70+59`717\"072", "72<7858>772=8", "72?78604+215", "7384?743+945", "74070+71272", "7407+442<081", "8100}75:831+9", "8;10075[994+3", "827[695>022+8", "82}803+20[528", "8+28;2820<961", "8+282~8813`44", "8420+121:121", "8420-1311;19", "81008122-44", "98<74]07-7522", "923×916-4439", "98?304-46612", "98?3044-6619", "9@8300~861>86", "?98301@54280", "98<30>86#1191", "$908?8876×788", "943$317×9549", "90{07$922}831", "98$305[67405", "7%003]937[928", "?801716%8214", "98>313>23<99%2", "990,308<85%55", "86}9728%7089:", "8697%287×539", "98<310^11438", "`914`320\"66\"6^8", "905^1128×500", "8334^877<942", "98[8361^99.99", "9903]83472^0", "98~30-792^86", "9830\&=79508", "80?171-1\&218", "9-=30{225\&6}59", "9=-39771\&994", "8961-684\&51", "983\&1220042", "908=841×882", "964\&7286?634", "=836<226<95\&>4", "-67<438>291\\&0", "=831?266\&077", "92307\&27368", "9=366<>614-2", "-748*220?887", "=8366*739×68", "=051*034`88`8", "9*836;95<3733", "90*51=920:25", "98~31046*9-2", "858<282>9602", "96*7405?960=", "=8906!475×698", "-9831>065<597!", "983:1541!540", "98742!47900×", "98!31<00\"1379", "9!874`208'000"]; function shuffle(e) { for (var t = e.length, r = void 0, o = void 0; t;)o = Math.floor(Math.random() * t--), r = e[t], e[t] = e[o], e[o] = r; return e } function addWords() {
+            var e = $("#word-section")[0]; e.innerHTML = ""; for (var t = 350; t > 0; t--) { var r = "<span>" + shuffle(wordList)[t] + "</span>"; e.innerHTML += r }
+            e.firstChild.classList.add("current-word")
+        }
+        var colorCurrentWord = " #dddddd", colorCorrectWord = "#93C572", colorIncorrectWord = "#e50000", wordData = { seconds: 120, correct: 0, incorrect: 0, total: 0, typed: 0 }; function checkWord(e) { var t = e.value.length, r = $(".current-word")[0], o = r.innerHTML.substring(0, t); return e.value.trim() != o ? (r.classList.add("incorrect-word-bg"), !1) : (r.classList.remove("incorrect-word-bg"), !0) }
+        function submitWord(e) { var t = $(".current-word")[0]; checkWord(e) ? (t.classList.remove("current-word"), t.classList.add("correct-word-c"), wordData.correct += 1) : (t.classList.remove("current-word", "incorrect-word-bg"), t.classList.add("incorrect-word-c"), wordData.incorrect += 1), wordData.total = wordData.correct + wordData.incorrect, t.nextSibling.classList.add("current-word") }
+        function clearLine() {
+            var e = $("#word-section")[0], t = $(".current-word")[0], r = t.previousSibling, o = $(".correct-word-c, .incorrect-word-c").length; if (t.offsetTop > r.offsetTop)
+                for (var n = 0; n < o; n++)e.removeChild(e.firstChild)
+        }
+        function isTimer(e) { var t, r = e, o = $("#timer > span")[0].innerHTML; if ("2:00" == o) t = setInterval(function () { if (r <= 0) clearInterval(t), document.getElementById("result").innerHTML = "<span onclick='typingTest(event)' id='done'>View Result</span>"; else { var e = (r -= 1) < 10 ? "0" + r : r; $("#timer > span")[0].innerHTML = "0:" + e } }, 1e3); else if ("0:00" == o) return !1; return !0 }
+        function calculateWPM(e) {
+            var t = e.seconds, r = e.correct, o = e.incorrect, n = e.total, a = e.typed, s = t / 120, i = Math.ceil(a / 10 - o / s), l = Math.ceil(r / n * 100); if (i >= 15) { var link = "<h3>Congratulation, you have successfully passed this lesson</h3> <button onclick='restartTest()'>Practice Again</button><a href='touch-typing-lessons.php' class='next'>Next Exercise</a>"; }
+            else { var link = "<h3>Sorry, your typing speed is " + i + "WPM. Please practice again.</h3> <button onclick='restartTest()'>Practice Again</button>"; }
+            i < 0 && (i = 0); var c = '<ul id="results">\n        <li>WPM: <span class="wpm-value">' + i + '</span></li>\n        <li>Accuracy: <span class="wpm-value">' + l + '%</span></li>\n        <li id="results-stats">\n        Total Words: <span>' + n + "</span> |\n        Correct Words: <span>" + r + "</span> |\n        Incorrect Words: <span>" + o + "</span> |\n        Characters Typed: <span>" + a + "</span>\n        </li>\n        </ul>"; $("#word-section")[0].innerHTML = c; var d = "<ul><li><a href='https://pinterest.com/pin/create/button/?url=https://onlinetyping.org/typing-test/share.php?w=" + i + "-" + l + "-" + n + "-" + r + "-" + o + "-" + a + "&media=https://onlinetyping.org/images/typing-test-result.jpg&description=Check%20my%20typing%20test%20result' class='pin' target='_blank' rel='nofollow'>Share on<br>Pinterest</a></li><li><a href='https://www.facebook.com/sharer.php?u=https://onlinetyping.org/typing-test/share.php?w=" + i + "-" + l + "-" + n + "-" + r + "-" + o + "-" + a + "' class='facebook' target='_blank' rel='nofollow'>Share on<br>Facebook</a></li><li><a href='https://www.twitter.com/share?url=https://onlinetyping.org/typing-test/share.php?w=" + i + "-" + l + "-" + n + "-" + r + "-" + o + "-" + a + "' class='twitter' target='_blank' rel='nofollow'>Share on<br>Twitter</a></li></ul>"; $("#social")[0].innerHTML = d, document.getElementById("link").style.border = "1px solid #CCC", $("#link")[0].innerHTML = link, document.getElementById("result").style.display = "none"; var h = $("li:nth-child(2) .wpm-value")[0].classList; l > 80 ? h.add("correct-word-c") : h.add("incorrect-word-c"), console.log(wordData)
+        }
+        function restartTest() { location.reload() }
+        function typingTest(e) { var t = (e = e || window.event).keyCode, r = $("#typebox")[0]; r.value.match(/^\s/g) ? r.value = "" : isTimer(wordData.seconds) ? (checkWord(r), 32 == t && (submitWord(r), clearLine(), $("#typebox")[0].value = ""), wordData.typed += 1) : calculateWPM(wordData) }</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85757041-1"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'UA-85757041-1');</script>
+    <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw1.js'); }
+        const dtd = new Date(); document.getElementById("year").innerHTML = dtd.getFullYear();</script>
+    <div class="ezmob-footer ezoic-floating-bottom ezo_ad ezmob-footer-desktop" id=ezmobfooter>
+        <center><span id=ezoic-pub-ad-placeholder-100></span></center>
+    </div>
+    <script
+        data-cfasync=false>!function () { var e = function (e, t) { for (var r = 0; r < t.length; r++) { var n = t[r]; if (0 == n.complete || void 0 !== n.readyState && n.readyState < 4) { var o = n.getAttribute("src") || n.currentSrc; void 0 !== n.readyState && 0 == n.readyState ? n.addEventListener("loadstart", (function (e) { var t = e.currentTarget.getAttribute("src") || e.currentSrc; window.ezorqs(e, t) })) : (o = n.getAttribute("src") || n.currentSrc, window.ezorqs(n, o)), n.addEventListener("load", (function (e) { var t = e.currentTarget.getAttribute("src") || e.srcElement.currentSrc; window.ezorqe(e, t) })), n.addEventListener("loadeddata", (function (e) { var t = e.currentTarget.getAttribute("src") || e.srcElement.currentSrc; window.ezorqe(e, t) })), n.addEventListener("error", (function (e) { var t = e.currentTarget.getAttribute("src") || e.srcElement.currentSrc; window.ezorqe(e, t) })) } } }; function t(e) { for (var t = 0; t < document.styleSheets.length; t++)if (document.styleSheets[t].href == e) return !0; return !1 } __ez_addAllListeners = function () { e(0, document.querySelectorAll("img")), e(0, document.querySelectorAll("video")), e(0, document.querySelectorAll("audio")), function (e) { for (var r = 0; r < e.length; r++) { var n = e[r]; if (("preload" == n.getAttribute("rel") || "stylesheet" == n.getAttribute("rel")) && null != n.getAttribute("href") && t(n.getAttribute("href"))) { window.ezorqs(n, n.getAttribute("href")); var o = document.createElement("img"); o.onerror = function (e) { void 0 !== e.path && void 0 !== e.path[0].currentSrc ? window.ezorqe(n, e.path[0].currentSrc) : void 0 !== e.srcElement && void 0 !== e.srcElement.href && window.ezorqe(n, e.srcElement.href) }, o.src = n.getAttribute("href") } } }(document.querySelectorAll("link")), void 0 !== window.__ez.ssaf && window.__ez.ssaf.indexOf(16) > -1 && void 0 !== window.__ez.sshsdef && !1 === window.__ez.sshsdef && Element.prototype.addEventListener && ("function" == typeof window.onload && (window.addEventListener("load", window.onload), window.onload = null), "function" == typeof document.onload && (document.addEventListener.addEventListener("load", document.onload), document.onload = null)) }, __ez.queue.addFunc("__ez_addAllListeners", "__ez_addAllListeners", null, !1, ["/detroitchicago/tulsa.js"], !0, !0, !0, !0) }();</script>
+    <script
+        style=display:none>var __ez_dims = (function () { var setCookie = function (name, content, expiry) { return document.cookie = name + '=' + content + ((expiry) ? ';expires=' + (new Date(Math.floor(new Date().getTime() + expiry * 1000)).toUTCString()) : '') + ';path=/'; }; var ffid = 1; var oh = window.screen.height; var ow = window.screen.width; var h = ffid === 1 ? oh : (oh > ow) ? oh : ow; var w = ffid === 1 ? ow : (oh > ow) ? ow : oh; var uh = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight; var uw = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth; setCookie('ezds', encodeURIComponent('ffid=' + ffid + ',w=' + w + ',h=' + h), (31536e3 * 7)); setCookie('ezohw', encodeURIComponent('w=' + uw + ',h=' + uh), (31536e3 * 7)); })();</script>
+    <script style=display:none async></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+        data-cf-beacon='{"rayId":"74b8b1f09d7bbbfb","version":"2022.8.1","r":1,"token":"2ab8c66139724efaa88701d4ab51fea0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{
+  "editor.formatOnSave": true,
+  "workbench.editor.openPositioning": "left",
+  "workbench.sideBar.location": "right",
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.multiCursorModifier": "ctrlCmd",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnType": true,
+    "editor.wordBasedSuggestions": "off",
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.minimap.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "notebook.lineNumbers": "on",
+  "python.interpreter.infoVisibility": "always",
+  "AREPL.whenToExecute": "onKeybinding",
+  "AREPL.unsafeKeywords": ["rmdir\\(", "rmtree\\("],
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "files.autoSave": "afterDelay",
+  "workbench.activityBar.location": "hidden",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 2,
+  "terminal.integrated.letterSpacing": 1,
+  "editor.letterSpacing": 1,
+  "editor.accessibilitySupport": "off"
+}
